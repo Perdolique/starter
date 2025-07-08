@@ -6,7 +6,7 @@
 
 ### 📚 Tools, libs, etc
 
-- Package manager: `pnpm`.
+- Package manager: [`pnpm`](https://pnpm.io/).
 
 ### Other techical things
 
