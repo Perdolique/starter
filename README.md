@@ -38,3 +38,4 @@
 
 - Monorepo with [pnpm workspaces](https://pnpm.io/workspaces).
 - `.editorconfig` for consistent code style.
+- [Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide) for automatic dependency updates.
