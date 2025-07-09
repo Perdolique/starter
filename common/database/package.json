@@ -1,0 +1,12 @@
+{
+  "name": "@starter/database",
+  "version": "1.0.0",
+  "description": "Database utilities",
+  "scripts": {},
+  "keywords": [],
+  "author": "Perdolique",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "drizzle-orm": "0.44.2"
+  }
+}

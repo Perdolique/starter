@@ -1,0 +1,24 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "Starter pack for future awesome projects 🐕💨",
+  "scripts": {
+    "update:all": "taze -r -l -I latest",
+    "update:newest": "taze -r -l -I newest"
+  },
+  "keywords": [
+    "starter",
+    "monorepo",
+    "pnpm",
+    "taze",
+    "nuxt",
+    "h3",
+    "drizzle-orm"
+  ],
+  "author": "Perdolique",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "taze": "19.1.0"
+  }
+}

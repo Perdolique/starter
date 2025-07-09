@@ -1,0 +1,12 @@
+{
+  "name": "@starter/nuxt",
+  "version": "1.0.0",
+  "description": "Nuxt.js application",
+  "scripts": {},
+  "keywords": [],
+  "author": "Perdolique",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "nuxt": "4.0.0-rc.0"
+  }
+}
