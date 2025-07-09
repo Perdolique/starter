@@ -24,8 +24,6 @@
 
 ## 🛠️ Technical stack
 
-- GitHub Copilot instructions.
-
 ### 📚 Tools, libs, etc
 
 - [Nuxt.js](https://nuxt.com) - web framework.
@@ -39,3 +37,4 @@
 - Monorepo with [pnpm workspaces](https://pnpm.io/workspaces).
 - `.editorconfig` for consistent code style.
 - [Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide) for automatic dependency updates.
+- [GitHub Copilot](https://github.com/features/copilot) for AI-powered code suggestions.

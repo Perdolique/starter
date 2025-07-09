@@ -6,7 +6,7 @@
   "keywords": [],
   "author": "Perdolique",
   "license": "UNLICENSED",
-  "dependencies": {
+  "devDependencies": {
     "@types/node": "24.0.12"
   }
 }
