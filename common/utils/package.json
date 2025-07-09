@@ -1,0 +1,12 @@
+{
+  "name": "@starter/utils",
+  "version": "1.0.0",
+  "description": "Utility functions and helpers",
+  "scripts": {},
+  "keywords": [],
+  "author": "Perdolique",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "24.0.12"
+  }
+}
