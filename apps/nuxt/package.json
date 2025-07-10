@@ -2,11 +2,21 @@
   "name": "@starter/nuxt",
   "version": "1.0.0",
   "description": "Nuxt.js application",
-  "scripts": {},
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
+    "postinstall": "nuxt prepare"
+  },
   "keywords": [],
   "author": "Perdolique",
   "license": "UNLICENSED",
   "dependencies": {
-    "nuxt": "4.0.0-rc.0"
+    "nuxt": "4.0.0-rc.0",
+    "typescript": "catalog:",
+    "vue-tsc": "3.0.1"
   }
 }

@@ -1,0 +1,9 @@
+# Nuxt dev/build outputs
+dist
+.nuxt
+.output
+
+# Local env files
+.env
+.env.*
+!.env.example
