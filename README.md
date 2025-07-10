@@ -26,11 +26,13 @@
 
 ### 📚 Tools, libs, etc
 
+- [TypeScript](https://www.typescriptlang.org) - static type checker for JavaScript.
 - [Nuxt.js](https://nuxt.com) - web framework.
 - [Drizzle ORM](https://orm.drizzle.team) - TypeScript ORM for SQL databases.
 - [H3.js](https://h3.dev/) - HTTP framework for building web servers.
 - [pnpm](https://pnpm.io) - package manager.
 - [taze](https://github.com/antfu-collective/taze) - package update utility.
+- [Vue Language Tools](https://github.com/vuejs/language-tools) - High-performance Vue language tooling based-on Volar.js
 
 ### Other technical things
 
