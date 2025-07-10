@@ -24,6 +24,10 @@
 
 ## 🛠️ Technical stack
 
+- Bleeding-edge technologies and tools.
+- Only evergreen browsers are supported
+- No legacy code, no outdated libraries.
+
 ### 📚 Tools, libs, etc
 
 - [TypeScript](https://www.typescriptlang.org) - static type checker for JavaScript.
