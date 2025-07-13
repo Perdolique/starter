@@ -37,6 +37,14 @@ export default defineNuxtConfig({
     enabled: true
   },
 
+  nitro: {
+    preset: 'cloudflare-module',
+
+    cloudflare: {
+      deployConfig: false
+    }
+  },
+
   typescript: {
     typeCheck: true
   },

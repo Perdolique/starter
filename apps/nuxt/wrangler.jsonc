@@ -1,0 +1,35 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "compatibility_date": "2025-07-25",
+  "main": ".output/server/index.mjs",
+
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".output/public",
+  },
+
+  "compatibility_flags": [
+    "nodejs_compat",
+    "no_nodejs_compat_v2"
+  ],
+
+  "observability": {
+    "logs": {
+      "enabled": true
+    }
+  },
+
+  "placement": {
+    "mode": "smart"
+  },
+
+  "env": {
+    "staging": {
+      "name": "starter-nuxt-staging"
+    },
+
+    "production": {
+      "name": "starter-nuxt-production"
+    }
+  }
+}
