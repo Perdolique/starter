@@ -6,10 +6,12 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "deploy": "wrangler deploy",
     "dev": "nuxt dev",
-    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "preview": "wrangler dev",
     "typecheck": "nuxt typecheck",
-    "postinstall": "nuxt prepare"
+    "versions:upload": "wrangler versions upload"
   },
   "keywords": [],
   "author": "Perdolique",
@@ -17,6 +19,7 @@
   "dependencies": {
     "nuxt": "4.0.0-rc.0",
     "typescript": "catalog:",
-    "vue-tsc": "3.0.1"
+    "vue-tsc": "3.0.1",
+    "wrangler": "catalog:"
   }
 }
