@@ -15,7 +15,7 @@
   "author": "Perdolique",
   "license": "UNLICENSED",
   "dependencies": {
-    "nuxt": "4.0.0-rc.0",
+    "nuxt": "4.0.0",
     "typescript": "catalog:",
     "vue-tsc": "3.0.1"
   }
