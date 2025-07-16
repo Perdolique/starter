@@ -41,6 +41,10 @@ export default defineNuxtConfig({
     typeCheck: true
   },
 
+  modules: [
+    '@pinia/nuxt'
+  ],
+
   experimental: {
     viewTransition: true,
 
