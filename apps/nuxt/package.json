@@ -21,6 +21,6 @@
     "nuxt": "4.0.0",
     "pinia": "3.0.3",
     "typescript": "catalog:",
-    "vue-tsc": "3.0.1"
+    "vue-tsc": "3.0.2"
   }
 }
