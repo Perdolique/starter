@@ -41,10 +41,6 @@ export default defineNuxtConfig({
     typeCheck: true
   },
 
-  modules: [
-    '@pinia/nuxt'
-  ],
-
   experimental: {
     viewTransition: true,
 
@@ -68,6 +64,20 @@ export default defineNuxtConfig({
   // Disable autoimport for components
   components: [],
 
+  modules: [
+    '@pinia/nuxt',
+    '@nuxt/icon'
+  ],
+
+  icon: {
+    provider: 'none',
+
+    // Do not utilize SSR for icons
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256
+    }
+  },
 
   vite: {
     css: {
