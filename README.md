@@ -37,6 +37,7 @@
 - [pnpm](https://pnpm.io) - package manager.
 - [taze](https://github.com/antfu-collective/taze) - package update utility.
 - [Vue Language Tools](https://github.com/vuejs/language-tools) - High-performance Vue language tooling based-on Volar.js
+- [Pinia](https://pinia.vuejs.org) - state management library for Vue.js.
 
 ### Other technical things
 
