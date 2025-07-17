@@ -2,6 +2,14 @@
 
 ## Quick start
 
+- TODO
+
+### Icons
+
+By default, the project uses [client bundle mode](https://nuxt.com/modules/icon#client-bundle) for icons. It means that icon packs [should be installed](https://nuxt.com/modules/icon#iconify-dataset) separately.
+
+To install icons, run the following command: `pnpm --filter @starter/nuxt add @iconify-json/streamline-emojis`
+
 ## Project structure
 
 - `/` - root directory with global scripts
@@ -37,6 +45,8 @@
 - [pnpm](https://pnpm.io) - package manager.
 - [taze](https://github.com/antfu-collective/taze) - package update utility.
 - [Vue Language Tools](https://github.com/vuejs/language-tools) - High-performance Vue language tooling based-on Volar.js
+- [Pinia](https://pinia.vuejs.org) - state management library for Vue.js.
+- [@nuxt/icon](https://github.com/nuxt/icon?tab=readme-ov-file#nuxt-icon) - icon management for Nuxt.js.
 
 ### Other technical things
 

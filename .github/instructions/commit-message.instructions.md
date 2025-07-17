@@ -2,6 +2,8 @@
 
 When writing commit messages, follow these guidelines:
 
+- Go through the list of recent edits deeply and summarize the most important changes.
+- Use conventional commit format.
 - Begin the commit message with a single short (no more than 50 characters) line summarizing the change, followed by a blank line and then a more thorough description in list format with fun emoji per each item that represents the change.
 - Do not break down the details of the changes deeply, no need to explain every changed line in details. Just short description per changes for most important changes.
 - Put emoji on the beginning of the text following the format: `-{one space}{emoji}{one space}{text}`.
