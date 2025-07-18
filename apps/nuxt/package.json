@@ -17,10 +17,10 @@
   "dependencies": {
     "@iconify-json/streamline-emojis": "1.2.2",
     "@nuxt/icon": "1.15.0",
-    "@pinia/nuxt": "0.11.1",
+    "@pinia/nuxt": "0.11.2",
     "nuxt": "4.0.0",
     "pinia": "3.0.3",
     "typescript": "catalog:",
-    "vue-tsc": "3.0.1"
+    "vue-tsc": "3.0.3"
   }
 }
