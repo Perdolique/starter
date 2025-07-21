@@ -1,3 +1,7 @@
+---
+applyTo: '**/*'
+---
+
 # Commit Message Instructions
 
 When writing commit messages, follow these guidelines:

@@ -10,6 +10,10 @@
       <li>
         <NuxtLink to="/test-page/icon">Icons</NuxtLink>
       </li>
+
+      <li>
+        <NuxtLink to="/test-page/fonts">Fonts</NuxtLink>
+      </li>
     </ul>
   </section>
 </template>

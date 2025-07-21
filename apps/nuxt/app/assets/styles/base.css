@@ -1,0 +1,11 @@
+@layer reset, base;
+
+/* https://piccalil.li/blog/a-more-modern-css-reset/ */
+@import './reset.css' layer(reset);
+
+/* Custom global styles */
+@layer base {
+  :root {
+    font-family: 'Inter', sans-serif;
+  }
+}
