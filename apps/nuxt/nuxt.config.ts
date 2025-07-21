@@ -66,7 +66,8 @@ export default defineNuxtConfig({
 
   modules: [
     '@pinia/nuxt',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    '@nuxt/fonts'
   ],
 
   icon: {
@@ -77,6 +78,14 @@ export default defineNuxtConfig({
       scan: true,
       sizeLimitKb: 256
     }
+  },
+
+  fonts: {
+    families: [{
+      name: 'Inter',
+      provider: 'fontsource',
+      weights: ['100 900'],
+    }]
   },
 
   vite: {
