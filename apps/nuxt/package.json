@@ -6,10 +6,14 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "deploy:production": "wrangler deploy --env production",
+    "deploy:staging": "wrangler deploy --env staging",
     "dev": "nuxt dev",
-    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "preview": "wrangler dev",
     "typecheck": "nuxt typecheck",
-    "postinstall": "nuxt prepare"
+    "upload:staging": "wrangler versions upload --env staging",
+    "upload:production": "wrangler versions upload --env production"
   },
   "keywords": [],
   "author": "Perdolique",
@@ -22,6 +26,7 @@
     "nuxt": "4.0.1",
     "pinia": "3.0.3",
     "typescript": "catalog:",
-    "vue-tsc": "3.0.3"
+    "vue-tsc": "3.0.4",
+    "wrangler": "catalog:"
   }
 }
