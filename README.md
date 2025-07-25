@@ -4,7 +4,34 @@
 
 - TODO
 
-### Icons
+### Nuxt.js application
+
+Example of Nuxt.js application is located in the `apps/nuxt` directory and works as SSR (Server-Side Rendering) application by default.
+
+To run the Nuxt.js application locally, follow these steps:
+
+1. Run `pnpm --filter @starter/nuxt run dev` to start the development server.
+
+#### Deployment
+
+To deploy the Nuxt.js application, you need to prepare environment:
+
+1. Create two workers on Cloudflare. One for `staging` and one for `production` (e.g. `starter-nuxt-staging` and `starter-nuxt-production`).
+2. Connect GitHub repository to those workers and configure build settings:
+   - Set your default branch as branch control setting in both workers.
+   - Set build command as `pnpm run build` in both workers.
+   - Set deploy command as `pnpm run deploy:staging` for staging worker.
+   - Set deploy command as `pnpm run deploy:production` for production worker.
+   - Set path as `apps/nuxt` in both workers.
+   - For staging worker enable build for non-production branches with command `pnpm run upload:staging`. It will upload builds for every non-production branch.
+   - Update worker names in `wrangler.jsonc` file accordingly.
+
+To test deployment locally, you can use following commands:
+
+1. Build: `pnpm --filter @starter/nuxt run build`
+2. Preview: `pnpm --filter @starter/nuxt run preview`
+
+#### Icons
 
 By default, the project uses [client bundle mode](https://nuxt.com/modules/icon#client-bundle) for icons. It means that icon packs [should be installed](https://nuxt.com/modules/icon#iconify-dataset) separately.
 

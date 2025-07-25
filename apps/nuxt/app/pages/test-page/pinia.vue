@@ -1,13 +1,17 @@
 <template>
-  <div :class="$style.component">
-    <button
-      v-for="emoji in emojiStore.allEmojis"
-      :key="emoji"
-      @click="emojiStore.toggleEmoji(emoji)"
-      :class="[$style.emojiButton, { enabled: emojiStore.enabledEmojis.has(emoji) }]"
-    >
-      {{ emoji }}
-    </button>
+  <div :class="$style.container">
+    <h2>Pinia store test</h2>
+
+    <div :class="$style.buttons">
+      <button
+        v-for="emoji in emojiStore.allEmojis"
+        :key="emoji"
+        @click="emojiStore.toggleEmoji(emoji)"
+        :class="[$style.emojiButton, { enabled: emojiStore.enabledEmojis.has(emoji) }]"
+      >
+        {{ emoji }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -18,7 +22,12 @@
 </script>
 
 <style module>
-  .component {
+  .container {
+    display: grid;
+    row-gap: 20px;
+  }
+
+  .buttons {
     display: grid;
     grid-auto-flow: column;
     overflow: auto;
