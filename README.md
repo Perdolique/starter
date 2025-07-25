@@ -8,6 +8,9 @@
 
 Example of Nuxt.js application is located in the `apps/nuxt` directory and works as SSR (Server-Side Rendering) application by default.
 
+> By default configuration has two environments: `staging` and `production`. <br>
+> [starter-nuxt-staging](https://starter-nuxt-staging.perd.workers.dev/) | [starter-nuxt-production](https://starter-nuxt-production.perd.workers.dev/)
+
 To run the Nuxt.js application locally, follow these steps:
 
 1. Run `pnpm --filter @starter/nuxt run dev` to start the development server.
