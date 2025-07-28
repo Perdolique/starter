@@ -7,5 +7,12 @@
 @layer base {
   :root {
     font-family: 'Inter', sans-serif;
+
+    /* Spacings */
+    --spacing-16: 1rem;
+  }
+
+  body {
+    padding: var(--spacing-16);
   }
 }

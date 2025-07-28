@@ -1,9 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /**
   * Fix for iOS Safari landscape orientation
   *
@@ -14,14 +8,19 @@ html {
   text-size-adjust: none;
 }
 
+/* Apply a border box model to specific elements */
+body {
+  box-sizing: border-box;
+}
+
 /* Set core body defaults */
 body {
   min-height: 100vh;
+  margin: 0;
   line-height: 1.5; /* TODO: questionable rule */
 }
 
 /* Remove default margin in favour of better control in authored CSS */
-body,
 h1,
 h2,
 h3,
