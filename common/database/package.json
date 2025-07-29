@@ -7,6 +7,6 @@
   "author": "Perdolique",
   "license": "UNLICENSED",
   "dependencies": {
-    "drizzle-orm": "0.44.3"
+    "drizzle-orm": "0.44.4"
   }
 }
