@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext"
+    ],
+
+    "skipLibCheck": true,
+    "noEmit": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    "types": [
+      "./worker-configuration.d.ts"
+    ]
+  },
+
+  "include": [
+    "./src/**/*.ts"
+  ]
+}

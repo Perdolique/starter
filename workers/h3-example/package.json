@@ -2,11 +2,21 @@
   "name": "@starter/h3-example",
   "version": "1.0.0",
   "description": "H3.js example worker",
-  "scripts": {},
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:production": "wrangler deploy --env production",
+    "upload:staging": "wrangler versions upload --env staging",
+    "cf:typegen": "wrangler types",
+    "typecheck": "tsc"
+  },
   "keywords": [],
   "author": "Perdolique",
   "license": "UNLICENSED",
   "dependencies": {
-    "h3": "2.0.0-beta.3"
+    "h3": "2.0.0-beta.3",
+    "typescript": "catalog:",
+    "wrangler": "catalog:"
   }
 }
