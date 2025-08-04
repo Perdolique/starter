@@ -1,0 +1,28 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "starter-h3-worker-example",
+  "compatibility_date": "2025-08-01",
+  "main": "./src/index.ts",
+
+  "observability": {
+    "enabled": true
+  },
+
+  "env": {
+    "staging": {
+      "name": "starter-h3-worker-example-staging",
+
+      "vars": {
+        "EXAMPLE_VARIABLE": "Woof!"
+      }
+    },
+
+    "production": {
+      "name": "starter-h3-worker-example-production",
+
+      "vars": {
+        "EXAMPLE_VARIABLE": "Woof!"
+      }
+    }
+  }
+}

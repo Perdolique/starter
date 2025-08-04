@@ -68,6 +68,12 @@ importers:
       h3:
         specifier: 2.0.0-beta.3
         version: 2.0.0-beta.3
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.2
+      wrangler:
+        specifier: 'catalog:'
+        version: 4.27.0
 
 packages:
 
