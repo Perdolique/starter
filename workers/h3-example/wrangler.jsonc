@@ -8,13 +8,28 @@
     "enabled": true
   },
 
+  "placement": {
+    "mode": "smart"
+  },
+
+  // Staging KV namespace for development environment
+  "kv_namespaces": [{
+    "binding": "KV",
+    "id": "77c7462efdbf4fbca3c14b76aa769968"
+  }],
+
   "env": {
     "staging": {
       "name": "starter-h3-worker-example-staging",
 
       "vars": {
         "EXAMPLE_VARIABLE": "Woof!"
-      }
+      },
+
+      "kv_namespaces": [{
+        "binding": "KV",
+        "id": "77c7462efdbf4fbca3c14b76aa769968"
+      }]
     },
 
     "production": {
@@ -22,7 +37,12 @@
 
       "vars": {
         "EXAMPLE_VARIABLE": "Woof!"
-      }
+      },
+
+      "kv_namespaces": [{
+        "binding": "KV",
+        "id": "3abf0eeb65f24339b6a9065d96a5fc99"
+      }]
     }
   }
 }

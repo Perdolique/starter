@@ -25,11 +25,21 @@
 
   "env": {
     "staging": {
-      "name": "starter-nuxt-staging"
+      "name": "starter-nuxt-staging",
+
+      "kv_namespaces": [{
+        "binding": "KV",
+        "id": "77c7462efdbf4fbca3c14b76aa769968"
+      }]
     },
 
     "production": {
-      "name": "starter-nuxt-production"
+      "name": "starter-nuxt-production",
+
+      "kv_namespaces": [{
+        "binding": "KV",
+        "id": "3abf0eeb65f24339b6a9065d96a5fc99"
+      }]
     }
   }
 }

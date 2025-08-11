@@ -14,6 +14,10 @@
       <li>
         <NuxtLink to="/test-page/fonts">Fonts</NuxtLink>
       </li>
+
+      <li>
+        <NuxtLink to="/test-page/kv-storage">KV Storage</NuxtLink>
+      </li>
     </ul>
   </section>
 </template>

@@ -1,5 +1,6 @@
 import { createHash, type BinaryLike } from 'crypto'
 import { basename } from 'path'
+import { kvStarterStorage } from './shared/constants'
 
 /** Supported component types */
 type ComponentType = 'page' | 'layout' | 'component'
@@ -37,11 +38,29 @@ export default defineNuxtConfig({
     enabled: true
   },
 
+  modules: [
+    'nitro-cloudflare-dev',
+    '@pinia/nuxt',
+    '@nuxt/icon',
+    '@nuxt/fonts'
+  ],
+
   nitro: {
     preset: 'cloudflare-module',
 
     cloudflare: {
       deployConfig: false
+    },
+
+    storage: {
+      [kvStarterStorage]: {
+        driver: 'cloudflare-kv-binding',
+        binding: 'KV'
+      }
+    },
+
+    cloudflareDev: {
+      environment: 'staging'
     }
   },
 
@@ -71,12 +90,6 @@ export default defineNuxtConfig({
 
   // Disable autoimport for components
   components: [],
-
-  modules: [
-    '@pinia/nuxt',
-    '@nuxt/icon',
-    '@nuxt/fonts'
-  ],
 
   icon: {
     provider: 'none',
