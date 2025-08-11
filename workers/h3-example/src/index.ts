@@ -1,5 +1,10 @@
 import { createError, H3, readBody } from 'h3'
+import { object, parse, string } from 'valibot'
 import { kvTestKeyName } from './constants'
+
+const kvTestRequestSchema = object({
+  valueToStore: string('valueToStore must be a string')
+})
 
 const app = new H3()
 
@@ -20,19 +25,9 @@ app.get('/kv-test', async (event) => {
 app.post('/kv-test', async (event) => {
   const body = await readBody(event)
 
-  if (
-    typeof body !== 'object' ||
-    body === null ||
-    'valueToStore' in body === false ||
-    typeof body.valueToStore !== 'string'
-  ) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Invalid request body'
-    })
-  }
+  const { valueToStore } = parse(kvTestRequestSchema, body)
 
-  await event.runtime?.cloudflare?.env.KV.put(kvTestKeyName, body.valueToStore)
+  await event.runtime?.cloudflare?.env.KV.put(kvTestKeyName, valueToStore)
 
   return {
     storedValue: await event.runtime?.cloudflare?.env.KV.get(kvTestKeyName)
