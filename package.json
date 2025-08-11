@@ -2,6 +2,7 @@
   "name": "starter",
   "version": "1.0.0",
   "description": "Starter pack for future awesome projects 🐕💨",
+  "type": "module",
   "scripts": {
     "update:all": "taze -r -l -I latest",
     "update:newest": "taze -r -l -I newest"
@@ -19,6 +20,7 @@
   "license": "UNLICENSED",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
+    "ofetch": "1.4.1",
     "taze": "19.1.0"
   }
 }
