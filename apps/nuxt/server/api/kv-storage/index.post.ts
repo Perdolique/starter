@@ -1,9 +1,17 @@
+import { object, string, parse } from 'valibot'
 import { kvStarterStorage, kvTestKeyName } from '#shared/constants'
 
-export default defineEventHandler(async (event) => {
-  const { value } = await readBody(event)
+const KvStorageSchema = object({
+  value: string()
+})
 
-  if (typeof value !== 'string') {
+export default defineEventHandler(async (event) => {
+  const body = await readBody(event)
+
+  let validatedData
+  try {
+    validatedData = parse(KvStorageSchema, body)
+  } catch (error) {
     throw createError({
       statusCode: 400,
       statusMessage: 'Value must be a string'
@@ -12,9 +20,9 @@ export default defineEventHandler(async (event) => {
 
   const storage = useStorage<string>(kvStarterStorage)
 
-  await storage.setItem(kvTestKeyName, value)
+  await storage.setItem(kvTestKeyName, validatedData.value)
 
   return {
-    testValue: value
+    testValue: validatedData.value
   }
 })
