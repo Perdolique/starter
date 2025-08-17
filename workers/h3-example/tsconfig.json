@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "moduleResolution": "bundler",
+    "module": "esnext",
+
     "lib": [
       "ESNext"
     ],
@@ -11,7 +14,11 @@
 
     "types": [
       "./worker-configuration.d.ts"
-    ]
+    ],
+
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
 
   "include": [

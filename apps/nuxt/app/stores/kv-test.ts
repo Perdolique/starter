@@ -1,34 +1,34 @@
 export const useKvTestStore = defineStore('kv-test', () => {
-  const testValue = ref('')
+  const storedValue = ref('')
 
-  async function fetchTestValue() {
+  async function fetchValue() {
     const { data } = await useFetch('/api/kv-storage')
 
-    if (data.value !== undefined && data.value.testValue !== null) {
-      testValue.value = data.value.testValue
+    if (data.value !== undefined && data.value.storedValue !== null) {
+      storedValue.value = data.value.storedValue
     }
   }
 
-  async function saveTestValue(value: string) {
+  async function saveValue(value: string) {
 
     try {
       const savedValue = await $fetch('/api/kv-storage', {
         method: 'POST',
 
         body: {
-          value
+          storedValue: value
         }
       })
 
-      testValue.value = savedValue.testValue
+      storedValue.value = savedValue.storedValue
     } catch {
       // No-op
     }
   }
 
   return {
-    testValue,
-    fetchTestValue,
-    saveTestValue
+    storedValue,
+    fetchValue,
+    saveValue
   }
 })

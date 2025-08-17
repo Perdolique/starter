@@ -5,6 +5,6 @@ export default defineEventHandler(async () => {
   const storedValue = await storage.get(kvTestKeyName)
 
   return {
-    testValue: storedValue
+    storedValue
   }
 })

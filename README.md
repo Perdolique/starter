@@ -38,7 +38,7 @@ To install icons, run the following command: `pnpm --filter @starter/nuxt add @i
 
 ## Cloudflare workers
 
-Example of [H3.js](https://h3.dev/) worker is located in the `workers/h3-example` directory.
+Example of [H3.js](https://h3.dev/) worker is located in the `workers/h3-example` directory. The worker uses lazy routing to optimize cold start performance by loading route handlers only when needed.
 
 ### Directories and files
 
@@ -55,7 +55,10 @@ Example of [H3.js](https://h3.dev/) worker is located in the `workers/h3-example
 
 ### Running locally
 
-To run the worker locally, you can use the following command: `pnpm --filter @starter/h3-example run dev`
+To run the worker locally, you can use the following commands:
+
+- `pnpm --filter @starter/h3-example run dev` - run with local bindings (emulated)
+- `pnpm --filter @starter/h3-example run dev:remote` - run with [remote bindings](https://developers.cloudflare.com/workers/development-testing/#remote-bindings)
 
 ### Worker deployment
 
@@ -88,7 +91,7 @@ Cloudflare KV is integrated for both the Nuxt app (server routes) and the H3 wor
 - Demo UI page `/test-page/kv-storage` with a Pinia store to read/write a test value.
 - Shared constants file with storage + key names.
 - Local development aid via `nitro-cloudflare-dev` module (environment = staging by default) to emulate KV binding.
-- Helper script `scripts/kv-save-data.ts` for saving data to KV storage via API.
+- HTTP request files in `requests/` directory for testing API endpoints.
 
 ### 1. Create namespaces
 
@@ -131,8 +134,42 @@ The Nuxt project uses `nitro-cloudflare-dev` module + `nitro.cloudflareDev.envir
 You can test KV storage using:
 
 - Demo UI at `/test-page/kv-storage` in the Nuxt app
-- Helper script: `pnpm exec ts-node scripts/kv-save-data.ts <endpoint> <value>`
+- HTTP request files in `requests/kv-save-data.http` for testing endpoints
 - Direct API calls to the endpoints mentioned above
+
+## Validation
+
+The project includes a dedicated validation package `@starter/validation` built on top of [Valibot](https://valibot.dev) for type-safe data validation across the monorepo.
+
+### Features
+
+- **Shared validation schemas** - Common validation rules that can be reused across apps and workers
+- **Safe validation** - Validators support both throwing (`safe: false`) and non-throwing (`safe: true`) modes
+
+### Usage
+
+```typescript
+import { nonEmptyStringValidator } from '@starter/validation/validators/strings';
+
+// Throwing mode (default)
+const result = nonEmptyStringValidator('hello world'); // string
+
+// Safe mode - returns success/error result
+const safeResult = nonEmptyStringValidator('hello world', { safe: true });
+if (safeResult.success) {
+  console.log(safeResult.data); // string
+} else {
+  console.log(safeResult.issues); // validation errors
+}
+```
+
+## HTTP Testing
+
+The `requests/` directory contains HTTP request files for testing API endpoints across different services. These files can be used with VS Code [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension or similar tools for quick API testing during development.
+
+Currently includes:
+
+- `kv-save-data.http` - KV storage endpoints testing for both Nuxt app and H3 worker
 
 ## 🛠️ Technical stack
 
@@ -146,6 +183,7 @@ You can test KV storage using:
 - [Nuxt.js](https://nuxt.com) - web framework.
 - [Drizzle ORM](https://orm.drizzle.team) - TypeScript ORM for SQL databases.
 - [H3.js](https://h3.dev/) - HTTP framework for building web servers.
+- [Valibot](https://valibot.dev) - schema validation library with great TypeScript support.
 - [pnpm](https://pnpm.io) - package manager.
 - [taze](https://github.com/antfu-collective/taze) - package update utility.
 - [Vue Language Tools](https://github.com/vuejs/language-tools) - High-performance Vue language tooling based-on Volar.js
@@ -170,6 +208,8 @@ You can test KV storage using:
 - `/common` - shared packages
 - `/common/database` - database schema, related utils, types etc.
 - `/common/utils` - utility functions and helpers
+- `/common/validation` - shared validation schemas and utilities using Valibot
+- `/requests` - HTTP request files for testing API endpoints across services
 - `/scripts` - utility scripts for development and deployment
 - `/workers` - worker applications
 - `/workers/h3-example` - H3.js example worker

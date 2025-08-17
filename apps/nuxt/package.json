@@ -23,9 +23,11 @@
     "@nuxt/fonts": "0.11.4",
     "@nuxt/icon": "2.0.0",
     "@pinia/nuxt": "0.11.2",
+    "@starter/validation": "workspace:^",
     "nuxt": "4.0.3",
     "pinia": "3.0.3",
     "typescript": "catalog:",
+    "valibot": "catalog:",
     "vue-tsc": "3.0.5",
     "wrangler": "catalog:"
   },

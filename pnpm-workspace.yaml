@@ -2,6 +2,7 @@ packages:
   - apps/nuxt
   - common/database
   - common/utils
+  - common/validation
   - workers/*
 
 catalog:
