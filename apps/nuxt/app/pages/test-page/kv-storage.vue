@@ -28,14 +28,14 @@
   })
 
   const kvTestStore = useKvTestStore()
-  const isButtonDisabled = computed(() => kvTestStore.testValue === inputValue.value)
+  const isButtonDisabled = computed(() => kvTestStore.storedValue === inputValue.value)
 
-  await kvTestStore.fetchTestValue()
+  await kvTestStore.fetchValue()
 
-  inputValue.value = kvTestStore.testValue
+  inputValue.value = kvTestStore.storedValue
 
   async function onSubmit() {
-    await kvTestStore.saveTestValue(inputValue.value)
+    await kvTestStore.saveValue(inputValue.value)
 
   }
 </script>

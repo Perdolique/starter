@@ -1,20 +1,22 @@
+import { object, parse } from 'valibot'
 import { kvStarterStorage, kvTestKeyName } from '#shared/constants'
+import { NonEmptyStringSchema } from '@starter/validation/schemas/strings'
+
+const bodySchema = object({
+  storedValue: NonEmptyStringSchema
+})
+
+function bodyValidator(body: unknown) {
+  return parse(bodySchema, body)
+}
 
 export default defineEventHandler(async (event) => {
-  const { value } = await readBody(event)
-
-  if (typeof value !== 'string') {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Value must be a string'
-    })
-  }
-
+  const { storedValue } = await readValidatedBody(event, bodyValidator)
   const storage = useStorage<string>(kvStarterStorage)
 
-  await storage.setItem(kvTestKeyName, value)
+  await storage.setItem(kvTestKeyName, storedValue)
 
   return {
-    testValue: value
+    storedValue
   }
 })

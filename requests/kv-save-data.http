@@ -1,0 +1,16 @@
+@workerBaseUrl = http://localhost:8787
+
+###
+
+# @prompt valueToStore Value to store in the KV store
+
+POST {{workerBaseUrl}}/kv-test
+Content-Type: application/json
+
+{
+  "valueToStore": "{{valueToStore}}"
+}
+
+###
+
+GET {{workerBaseUrl}}/kv-test

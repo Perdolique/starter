@@ -1,43 +1,18 @@
-import { createError, H3, readBody } from 'h3'
-import { kvTestKeyName } from './constants'
+import { defineLazyEventHandler, H3 } from 'h3'
 
 const app = new H3()
 
-app.get('/', (event) => {
-  return {
-    EXAMPLE_VARIABLE: event.runtime?.cloudflare?.env.EXAMPLE_VARIABLE
-  }
-})
+app.get('/', defineLazyEventHandler(
+  () => import('./routes/index.get').then(module => module.default)
+))
 
-app.get('/kv-test', async (event) => {
-  const storedValue = await event.runtime?.cloudflare?.env.KV.get(kvTestKeyName)
+app.get('/kv-test', defineLazyEventHandler(
+  () => import('./routes/kv-test.get').then(module => module.default)
+))
 
-  return {
-    storedValue
-  }
-})
-
-app.post('/kv-test', async (event) => {
-  const body = await readBody(event)
-
-  if (
-    typeof body !== 'object' ||
-    body === null ||
-    'valueToStore' in body === false ||
-    typeof body.valueToStore !== 'string'
-  ) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Invalid request body'
-    })
-  }
-
-  await event.runtime?.cloudflare?.env.KV.put(kvTestKeyName, body.valueToStore)
-
-  return {
-    storedValue: await event.runtime?.cloudflare?.env.KV.get(kvTestKeyName)
-  }
-})
+app.post('/kv-test', defineLazyEventHandler(
+  () => import('./routes/kv-test.post').then(module => module.default)
+))
 
 export default {
   fetch(request, env, context) {

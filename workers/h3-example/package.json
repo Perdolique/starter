@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
+    "dev:remote": "wrangler dev --x-remote-bindings",
     "deploy:staging": "wrangler deploy --env staging",
     "deploy:production": "wrangler deploy --env production",
     "upload:staging": "wrangler versions upload --env staging",
@@ -15,8 +16,10 @@
   "author": "Perdolique",
   "license": "UNLICENSED",
   "dependencies": {
+    "@starter/validation": "workspace:*",
     "h3": "2.0.0-beta.3",
     "typescript": "catalog:",
+    "valibot": "catalog:",
     "wrangler": "catalog:"
   }
 }
