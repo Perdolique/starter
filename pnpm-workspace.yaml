@@ -8,7 +8,9 @@ packages:
 catalog:
   typescript: 5.9.2
   valibot: 1.1.0
-  wrangler: 4.31.0
+  wrangler: 4.32.0
+
+cleanupUnusedCatalogs: true
 
 nodeLinker: hoisted
 
