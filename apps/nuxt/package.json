@@ -28,7 +28,7 @@
     "pinia": "3.0.3",
     "typescript": "catalog:",
     "valibot": "catalog:",
-    "vue-tsc": "3.0.5",
+    "vue-tsc": "3.0.6",
     "wrangler": "catalog:"
   },
   "devDependencies": {
