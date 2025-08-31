@@ -1,11 +1,8 @@
----
-applyTo: '**/*'
----
-
-# Commit Message Instructions
+## Commit Message Instructions
 
 When writing commit messages, follow these guidelines:
 
+- Commit message should be in English.
 - Go through the list of recent edits deeply and summarize the most important changes.
 - Use conventional commit format.
 - Begin the commit message with a single short (no more than 50 characters) line summarizing the change, followed by a blank line and then a more thorough description in list format with fun emoji per each item that represents the change.

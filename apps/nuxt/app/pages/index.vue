@@ -18,6 +18,10 @@
       <li>
         <NuxtLink to="/test-page/kv-storage">KV Storage</NuxtLink>
       </li>
+
+      <li>
+        <NuxtLink to="/test-page/database">Database</NuxtLink>
+      </li>
     </ul>
   </section>
 </template>

@@ -3,8 +3,3 @@ dist
 .nuxt
 .output
 .wrangler
-
-# Local env files
-.env
-.env.*
-!.env.example
