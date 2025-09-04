@@ -24,7 +24,7 @@
     "@nuxt/icon": "2.0.0",
     "@pinia/nuxt": "0.11.2",
     "@starter/validation": "workspace:^",
-    "nuxt": "4.0.3",
+    "nuxt": "4.1.0",
     "pinia": "3.0.3",
     "typescript": "catalog:",
     "valibot": "catalog:",
