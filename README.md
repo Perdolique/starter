@@ -40,6 +40,21 @@ To install icons, run the following command: `pnpm --filter @starter/nuxt add @i
 
 Example of [H3.js](https://h3.dev/) worker is located in the `workers/h3-example` directory. The worker uses lazy routing to optimize cold start performance by loading route handlers only when needed.
 
+The H3 worker includes full database integration with Drizzle ORM, providing a complete backend solution with PostgreSQL support. It demonstrates how to build scalable serverless APIs with database operations.
+
+### Worker Features
+
+- **Database Integration** - Full PostgreSQL support with Drizzle ORM for type-safe database operations
+- **Lazy Routing** - Route handlers are loaded only when needed for optimal cold start performance
+- **Environment Validation** - Robust validation of environment variables using Valibot
+- **Demo Endpoints** - Example endpoints for KV storage and database operations
+
+### API Endpoints
+
+- `GET /` - Welcome endpoint
+- `GET /kv-test` and `POST /kv-test` - KV storage demonstration
+- `GET /users-count` - Database integration example (returns user count from PostgreSQL)
+
 ### Directories and files
 
 - `wrangler.jsonc` - configuration file for Cloudflare Workers.
@@ -137,16 +152,116 @@ You can test KV storage using:
 - HTTP request files in `requests/kv-save-data.http` for testing endpoints
 - Direct API calls to the endpoints mentioned above
 
+## Database
+
+The project includes a complete PostgreSQL database setup with Drizzle ORM in the `@starter/database` package for type-safe database operations across the monorepo.
+
+### Features
+
+- **PostgreSQL with Docker** - Complete database infrastructure with Docker Compose setup
+- [**Drizzle ORM**](https://orm.drizzle.team/) - Type-safe SQL query builder with excellent TypeScript support
+- **UUID v7 support** - Modern UUID generation with timestamp ordering
+- **Migration system** - Automated database schema versioning and updates
+- **Multi-environment support** - Local development with Docker and production with Neon Database
+- **WebSocket transactions** - Full transactional support via WebSocket connections
+
+### Database Schema
+
+The database includes predefined tables for common use cases:
+
+- `users` - User management with admin roles and timestamps
+- `oauthProviders` - Authentication provider integration
+- `oauthAccounts` - Linking user accounts with OAuth providers
+
+### Database Configuration
+
+1. Copy `common/database/.env.example` to `common/database/.env`
+2. Configure your database connection URL
+3. Set `LOCAL_DATABASE=1` for local Docker development
+
+The project supports both local and production database environments:
+
+- **Local Development**: Uses Docker PostgreSQL with Neon HTTP/WebSocket proxies for compatibility
+- **Production**: Connects directly to Neon Database or other PostgreSQL providers
+- **Environment Variables**:
+  - `DATABASE_URL` - PostgreSQL connection string
+  - `LOCAL_DATABASE` - Set to `1` for local Docker development
+  - `SESSION_SECRET` - Secure random string for session cookie signing
+
+### Local Development
+
+1. **Start the database**: `pnpm --filter @starter/database run db:start`
+2. **Run migrations**: `pnpm --filter @starter/database run db:migrate:local`
+
+The local setup includes:
+
+- **PostgreSQL 17** with custom `pg_uuidv7` extension for modern UUID generation
+- **Neon HTTP Proxy** on port 4444 for HTTP-based database queries (compatible with Neon's serverless driver)
+- **Neon WebSocket Proxy** on port 5433 for transactional operations
+- **Database accessible** at `postgres://user:password@db.localtest.me:5432/starter`
+
+To generate new migrations based on your schema changes, use:
+
+```bash
+pnpm --filter @starter/database run db:generate
+```
+
+### Additional Database Scripts
+
+- `pnpm --filter @starter/database run db:kit` - Run Drizzle Kit commands directly
+- `pnpm --filter @starter/database run db:seed` - Seed database with initial data
+
+### Database API Endpoints
+
+The Nuxt application includes demo authentication API endpoints that showcase database integration patterns for user management:
+
+- `GET /api/auth` - Get current user session information
+- `POST /api/auth` - Create a new user account
+- `DELETE /api/auth` - Delete current user account
+
+These endpoints serve as examples of how to implement authentication with database operations using Drizzle ORM and can be used as a starting point for building your own authentication system.
+
+**Server Utilities:**
+
+- `validateSessionUser()` - Utility function to ensure user is authenticated in API routes
+- `createDatabase()` - Creates Drizzle ORM instance with HTTP driver
+- `createDatabaseWebsocket()` - Creates Drizzle ORM instance with WebSocket support for transactions
+
+### Database Testing
+
+You can test the database functionality using:
+
+- **Demo UI** at `/test-page/database` in the Nuxt app - Interactive page for creating and deleting user accounts
+- **User Store (Pinia)** - State management for user authentication with reactive user data
+- **Session Management** - Automatic authentication state persistence across page refreshes
+
+### Database Middleware
+
+The Nuxt app includes automatic database integration through middleware:
+
+- `1.session.ts` - Session management middleware for user authentication
+- `2.database.ts` - Database connection middleware that provides Drizzle ORM instance to all API routes
+
+### Database CI/CD
+
+The project includes automated database migrations via GitHub Actions:
+
+- **Staging migrations** - Automatically run on pull requests when `common/database/migrations/**` files change
+- **Production migrations** - Automatically run on master branch pushes when migration files change
+- **Database seeding** - Included in staging environment for testing data setup
+
+Both workflows require `DATABASE_URL` secret to be configured in GitHub repository environments.
+
 ## Validation
 
 The project includes a dedicated validation package `@starter/validation` built on top of [Valibot](https://valibot.dev) for type-safe data validation across the monorepo.
 
-### Features
+### Validation Features
 
 - **Shared validation schemas** - Common validation rules that can be reused across apps and workers
 - **Safe validation** - Validators support both throwing (`safe: false`) and non-throwing (`safe: true`) modes
 
-### Usage
+### Validation Usage
 
 ```typescript
 import { nonEmptyStringValidator } from '@starter/validation/validators/strings';
@@ -170,6 +285,22 @@ The `requests/` directory contains HTTP request files for testing API endpoints 
 Currently includes:
 
 - `kv-save-data.http` - KV storage endpoints testing for both Nuxt app and H3 worker
+- `database-check.http` - Database endpoints testing for H3 worker (`/users-count`)
+- Database API endpoints can be tested directly via the demo UI at `/test-page/database`
+
+## Environment variables
+
+The project relies on several environment variables for configuration. You can find the example values in the `.env.example` files:
+
+- `apps/nuxt/.env.example` - Nuxt app configuration including database URL and session secret
+- `workers/h3-example/.env.example` - H3 worker configuration for Cloudflare Workers environment
+- `common/database/.env.example` - Database-specific configuration for local development
+
+Required variables:
+
+- `DATABASE_URL` - PostgreSQL connection string
+- `SESSION_SECRET` - Secure random string for session cookie signing (generate with `openssl rand -hex 32`)
+- `LOCAL_DATABASE` - Set to `1` for local Docker development (optional, defaults to production mode)
 
 ## 🛠️ Technical stack
 
@@ -182,6 +313,9 @@ Currently includes:
 - [TypeScript](https://www.typescriptlang.org) - static type checker for JavaScript.
 - [Nuxt.js](https://nuxt.com) - web framework.
 - [Drizzle ORM](https://orm.drizzle.team) - TypeScript ORM for SQL databases.
+- [PostgreSQL](https://www.postgresql.org) - advanced open source relational database.
+- [Neon Database](https://neon.tech) - serverless PostgreSQL for modern applications.
+- [Docker](https://www.docker.com) - containerization platform for local database setup.
 - [H3.js](https://h3.dev/) - HTTP framework for building web servers.
 - [Valibot](https://valibot.dev) - schema validation library with great TypeScript support.
 - [pnpm](https://pnpm.io) - package manager.
@@ -206,7 +340,7 @@ Currently includes:
 - `/apps` - frontend applications
 - `/apps/nuxt` - Nuxt.js application boilerplate
 - `/common` - shared packages
-- `/common/database` - database schema, related utils, types etc.
+- `/common/database` - PostgreSQL database setup with Drizzle ORM, schemas, migrations and Docker configuration
 - `/common/utils` - utility functions and helpers
 - `/common/validation` - shared validation schemas and utilities using Valibot
 - `/requests` - HTTP request files for testing API endpoints across services

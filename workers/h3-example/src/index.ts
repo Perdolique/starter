@@ -14,6 +14,10 @@ app.post('/kv-test', defineLazyEventHandler(
   () => import('./routes/kv-test.post').then(module => module.default)
 ))
 
+app.get('/users-count', defineLazyEventHandler(
+  () => import('./routes/users-count.get').then(module => module.default)
+))
+
 export default {
   fetch(request, env, context) {
     Object.defineProperties(request, {

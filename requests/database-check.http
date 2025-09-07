@@ -1,0 +1,5 @@
+@workerBaseUrl = http://localhost:8787
+
+###
+
+GET {{workerBaseUrl}}/users-count
