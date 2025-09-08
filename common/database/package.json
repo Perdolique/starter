@@ -2,11 +2,30 @@
   "name": "@starter/database",
   "version": "1.0.0",
   "description": "Database utilities",
-  "scripts": {},
+  "type": "module",
+  "exports": {
+    "./connection": "./connection.ts",
+    "./types": "./types.ts"
+  },
+  "scripts": {
+    "db:start": "docker compose up -d",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "tsx --env-file=.env migrate.ts",
+    "db:migrate": "tsx ./migrate.ts",
+    "db:seed": "exit 0",
+    "db:kit": "drizzle-kit"
+  },
   "keywords": [],
   "author": "Perdolique",
   "license": "UNLICENSED",
   "dependencies": {
-    "drizzle-orm": "0.44.4"
+    "@neondatabase/serverless": "1.0.1",
+    "@types/ws": "8.18.1",
+    "drizzle-kit": "0.31.4",
+    "drizzle-orm": "catalog:",
+    "ws": "8.18.3"
+  },
+  "devDependencies": {
+    "tsx": "4.20.5"
   }
 }
