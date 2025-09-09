@@ -6,10 +6,13 @@ const EnvSchema = v.object({
     v.nonEmpty()
   ),
 
-  // FIXME: https://github.com/fabian-hiller/valibot/issues/1266
-  LOCAL_DATABASE: v.exactOptional(
-    v.string(),
-    '0'
+  LOCAL_DATABASE: v.pipe(
+    v.optional(
+      v.string(),
+      '0'
+    ),
+
+    v.transform((value) => value === '1'),
   )
 })
 
@@ -21,11 +24,8 @@ const EnvSchema = v.object({
 export function validateEnv(env: unknown) {
   const result = v.parse(EnvSchema, env)
 
-  // TODO: move it to schema when the issue is resolved
-  const isLocalDatabase = result.LOCAL_DATABASE === '1'
-
   return {
-    isLocalDatabase,
+    isLocalDatabase: result.LOCAL_DATABASE,
     databaseUrl: result.DATABASE_URL
   }
 }
