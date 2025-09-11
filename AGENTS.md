@@ -5,7 +5,7 @@
 - `pnpm` is main package manager
 - This is monorepo managed with `pnpm` workspaces
 
-## Commit Message Instructions
+## Commit message instructions
 
 When writing commit messages, follow these guidelines:
 
@@ -19,3 +19,7 @@ When writing commit messages, follow these guidelines:
 - Use backticks (`) to wrap package names, file names, or code snippets for better readability.
 - For monorepo, when detailing changes in the commit body, include a bullet point in the following format:
   - {package name}: {short description of the change}
+
+## Pull request instructions
+
+- Use English for pull request titles and descriptions.
