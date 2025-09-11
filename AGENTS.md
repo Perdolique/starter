@@ -1,3 +1,10 @@
+# Starter template for future projects
+
+## Development
+
+- `pnpm` is main package manager
+- This is monorepo managed with `pnpm` workspaces
+
 ## Commit Message Instructions
 
 When writing commit messages, follow these guidelines:
