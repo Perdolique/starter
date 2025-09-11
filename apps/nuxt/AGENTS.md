@@ -2,4 +2,4 @@
 
 ## Development
 
-- You can run `pnpm run dev` to start development server.
+- Run `pnpm run dev` to start the development server.
