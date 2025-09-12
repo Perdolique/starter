@@ -31,7 +31,7 @@
     "typescript": "catalog:",
     "ufo": "1.6.1",
     "valibot": "catalog:",
-    "vue-tsc": "3.0.6",
+    "vue-tsc": "3.0.7",
     "wrangler": "catalog:"
   },
   "devDependencies": {
