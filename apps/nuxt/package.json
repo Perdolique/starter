@@ -26,12 +26,12 @@
     "@starter/database": "workspace:^",
     "@starter/validation": "workspace:^",
     "drizzle-orm": "catalog:",
-    "nuxt": "4.1.1",
+    "nuxt": "4.1.2",
     "pinia": "3.0.3",
     "typescript": "catalog:",
     "ufo": "1.6.1",
     "valibot": "catalog:",
-    "vue-tsc": "3.0.6",
+    "vue-tsc": "3.0.7",
     "wrangler": "catalog:"
   },
   "devDependencies": {
