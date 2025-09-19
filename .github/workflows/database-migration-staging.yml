@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - 'common/database/migrations/**'
+      - .github/workflows/database-migration-staging.yml
 
 jobs:
   migration:
@@ -19,7 +20,6 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version-file: .node-version
-          cache: pnpm
       - name: Install dependencies
         run: pnpm --filter @starter/database install
       - name: Run database migration
