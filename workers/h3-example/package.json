@@ -4,8 +4,8 @@
   "description": "H3.js example worker",
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "dev:remote": "wrangler dev --x-remote-bindings",
+    "dev": "wrangler dev --local",
+    "dev:remote": "wrangler dev",
     "deploy:staging": "wrangler deploy --env staging",
     "deploy:production": "wrangler deploy --env production",
     "upload:staging": "wrangler versions upload --env staging",
