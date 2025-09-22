@@ -21,6 +21,6 @@
   "packageManager": "pnpm@10.16.1",
   "devDependencies": {
     "ofetch": "1.4.1",
-    "taze": "19.6.0"
+    "taze": "19.7.0"
   }
 }
