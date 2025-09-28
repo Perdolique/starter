@@ -4,4 +4,5 @@ export const sessionCookieName = 'perd-starter'
 
 export const publicApiPaths = [
   '/api/auth',
+  '/api/logging'
 ] as const

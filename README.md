@@ -278,6 +278,37 @@ if (safeResult.success) {
 }
 ```
 
+## Logging
+
+The project includes a centralized logging system in the `@starter/utils` package that provides structured logging across all applications and workers. The logger is designed following [Cloudflare Workers Logs best practices](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#best-practices) for optimal observability and performance.
+
+### Logging Features
+
+- **Structured JSON output** - All logs are formatted as JSON objects with consistent schema, enabling better filtering and indexing in Workers Logs
+- **Cloudflare Workers optimized** - Follows best practices for Workers Logs with structured data instead of string concatenation
+- **Tagging system** - Each logger instance is tagged (e.g., 'nuxt', 'h3-example') for easy filtering and segmentation
+- **Multiple log levels** - Support for `info`, `warn`, and `error` logging levels
+- **Flexible content** - Accepts both string messages and object data for rich logging
+- **Cross-platform** - Works seamlessly in Nuxt server routes and Cloudflare Workers
+
+### Usage Examples
+
+```typescript
+import { createLogger } from '@starter/utils/logger'
+
+// Create logger instance with tag
+const logger = createLogger('my-app')
+
+// Log string messages
+logger.info('Server started successfully')
+logger.warn('Deprecated API endpoint used')
+logger.error('Database connection failed')
+
+// Log structured data
+logger.info({ userId: 123, action: 'login', timestamp: Date.now() })
+logger.error({ error: 'ValidationError', field: 'email', value: 'invalid' })
+```
+
 ## HTTP Testing
 
 The `requests/` directory contains HTTP request files for testing API endpoints across different services. These files can be used with VS Code [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension or similar tools for quick API testing during development.
@@ -341,7 +372,7 @@ Required variables:
 - `/apps/nuxt` - Nuxt.js application boilerplate
 - `/common` - shared packages
 - `/common/database` - PostgreSQL database setup with Drizzle ORM, schemas, migrations and Docker configuration
-- `/common/utils` - utility functions and helpers
+- `/common/utils` - utility functions and helpers including structured logging system
 - `/common/validation` - shared validation schemas and utilities using Valibot
 - `/requests` - HTTP request files for testing API endpoints across services
 - `/scripts` - utility scripts for development and deployment

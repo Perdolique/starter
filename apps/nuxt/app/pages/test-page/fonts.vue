@@ -1,7 +1,5 @@
 <template>
-  <section :class="$style.container">
-    <h2>Fonts test</h2>
-
+  <BasePage title="Fonts test">
     <div :class="$style.test1">
       The quick brown fox jumps over the lazy dog.
     </div>
@@ -41,15 +39,14 @@
     <div :class="$style.test9">
       The quick brown fox jumps over the lazy dog.
     </div>
-  </section>
+  </BasePage>
 </template>
 
-<style module>
-  .container {
-    display: grid;
-    row-gap: 20px;
-  }
+<script setup lang="ts">
+  import BasePage from '~/components/BasePage.vue';
+</script>
 
+<style module>
   .test1 {
     font-weight: 100;
   }

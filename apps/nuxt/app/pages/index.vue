@@ -4,11 +4,7 @@
 
     <ul>
       <li>
-        <NuxtLink to="/test-page/pinia">Pinia</NuxtLink>
-      </li>
-
-      <li>
-        <NuxtLink to="/test-page/icon">Icons</NuxtLink>
+        <NuxtLink to="/test-page/database">Database</NuxtLink>
       </li>
 
       <li>
@@ -16,11 +12,19 @@
       </li>
 
       <li>
+        <NuxtLink to="/test-page/icon">Icons</NuxtLink>
+      </li>
+
+      <li>
         <NuxtLink to="/test-page/kv-storage">KV Storage</NuxtLink>
       </li>
 
       <li>
-        <NuxtLink to="/test-page/database">Database</NuxtLink>
+        <NuxtLink to="/test-page/logging">Logging</NuxtLink>
+      </li>
+
+      <li>
+        <NuxtLink to="/test-page/pinia">Pinia</NuxtLink>
       </li>
     </ul>
   </section>

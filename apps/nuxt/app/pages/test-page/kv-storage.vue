@@ -1,7 +1,5 @@
 <template>
-  <section :class="$style.container">
-    <h2>KV storage test</h2>
-
+  <BasePage title="KV storage test">
     <form @submit.prevent="onSubmit">
       <input
         type="text"
@@ -17,10 +15,11 @@
         Store value
       </button>
     </form>
-  </section>
+  </BasePage>
 </template>
 
 <script setup lang="ts">
+  import BasePage from '~/components/BasePage.vue';
   import { useKvTestStore } from '~/stores/kv-test'
 
   const inputValue = defineModel({
@@ -39,10 +38,3 @@
 
   }
 </script>
-
-<style module>
-  .container {
-    display: grid;
-    row-gap: 20px;
-  }
-</style>

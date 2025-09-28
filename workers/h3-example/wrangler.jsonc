@@ -17,7 +17,7 @@
   "kv_namespaces": [{
     "binding": "KV",
     "id": "77c7462efdbf4fbca3c14b76aa769968",
-    "experimental_remote": true
+    "remote": true
   }],
 
   "env": {

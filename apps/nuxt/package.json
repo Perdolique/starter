@@ -24,6 +24,7 @@
     "@nuxt/icon": "2.0.0",
     "@pinia/nuxt": "0.11.2",
     "@starter/database": "workspace:^",
+    "@starter/utils": "workspace:^",
     "@starter/validation": "workspace:^",
     "drizzle-orm": "catalog:",
     "nuxt": "4.1.2",
@@ -31,7 +32,7 @@
     "typescript": "catalog:",
     "ufo": "1.6.1",
     "valibot": "catalog:",
-    "vue-tsc": "3.0.7",
+    "vue-tsc": "3.0.8",
     "wrangler": "catalog:"
   },
   "devDependencies": {
