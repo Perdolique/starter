@@ -1,7 +1,5 @@
 <template>
-  <div :class="$style.container">
-    <h2>Pinia store test</h2>
-
+  <BasePage title="Pinia store test">
     <div :class="$style.buttons">
       <button
         v-for="emoji in emojiStore.allEmojis"
@@ -12,21 +10,17 @@
         {{ emoji }}
       </button>
     </div>
-  </div>
+  </BasePage>
 </template>
 
 <script lang="ts" setup>
+  import BasePage from '~/components/BasePage.vue';
   import useEmojiStore from '~/stores/emoji'
 
   const emojiStore = useEmojiStore()
 </script>
 
 <style module>
-  .container {
-    display: grid;
-    row-gap: 20px;
-  }
-
   .buttons {
     display: grid;
     grid-auto-flow: column;

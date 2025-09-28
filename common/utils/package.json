@@ -6,6 +6,9 @@
   "keywords": [],
   "author": "Perdolique",
   "license": "UNLICENSED",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
   "devDependencies": {
     "@types/node": "24.5.2"
   }
