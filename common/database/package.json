@@ -19,13 +19,13 @@
   "author": "Perdolique",
   "license": "UNLICENSED",
   "dependencies": {
-    "@neondatabase/serverless": "1.0.1",
+    "@neondatabase/serverless": "1.0.2",
     "@types/ws": "8.18.1",
-    "drizzle-kit": "0.31.4",
+    "drizzle-kit": "0.31.5",
     "drizzle-orm": "catalog:",
     "ws": "8.18.3"
   },
   "devDependencies": {
-    "tsx": "4.20.5"
+    "tsx": "4.20.6"
   }
 }
