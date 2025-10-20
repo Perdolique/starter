@@ -3,6 +3,7 @@
   "name": "starter-h3-worker-example",
   "compatibility_date": "2025-08-01",
   "main": "./src/index.ts",
+  "preview_urls": true,
 
   "observability": {
     "enabled": true,
