@@ -1,7 +1,8 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  "compatibility_date": "2025-07-25",
+  "compatibility_date": "2025-10-20",
   "main": ".output/server/index.mjs",
+  "preview_urls": true,
 
   "assets": {
     "binding": "ASSETS",
