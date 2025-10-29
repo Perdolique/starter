@@ -19,7 +19,7 @@
     "@starter/database": "workspace:^",
     "@starter/utils": "workspace:^",
     "@starter/validation": "workspace:^",
-    "h3": "2.0.1-rc.2",
+    "h3": "2.0.1-rc.5",
     "typescript": "catalog:",
     "valibot": "catalog:",
     "wrangler": "catalog:"
