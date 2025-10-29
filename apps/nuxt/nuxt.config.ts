@@ -27,7 +27,7 @@ function getComponentName(componentName: string, componentType: ComponentType) :
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-10-20',
+  compatibilityDate: '2025-10-29',
 
   devServer: {
     port: 5000
@@ -69,6 +69,7 @@ export default defineNuxtConfig({
 
   experimental: {
     viewTransition: true,
+    viteEnvironmentApi: true,
 
     defaults: {
       nuxtLink: {

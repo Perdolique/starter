@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
   "name": "starter-h3-worker-example",
-  "compatibility_date": "2025-10-20",
+  "compatibility_date": "2025-10-29",
   "main": "./src/index.ts",
   "preview_urls": true,
 

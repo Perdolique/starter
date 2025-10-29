@@ -18,9 +18,9 @@
   ],
   "author": "Perdolique",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.20.0",
   "devDependencies": {
-    "ofetch": "1.4.1",
+    "ofetch": "1.5.0",
     "taze": "19.8.1"
   }
 }
