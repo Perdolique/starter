@@ -20,7 +20,7 @@
   "license": "UNLICENSED",
   "packageManager": "pnpm@10.20.0",
   "devDependencies": {
-    "ofetch": "1.5.0",
-    "taze": "19.8.1"
+    "ofetch": "1.5.1",
+    "taze": "19.9.0"
   }
 }
