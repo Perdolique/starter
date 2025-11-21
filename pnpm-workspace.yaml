@@ -9,7 +9,7 @@ catalog:
   drizzle-orm: 0.44.7
   typescript: 5.9.3
   valibot: 1.1.0
-  wrangler: 4.45.2
+  wrangler: 4.50.0
 
 cleanupUnusedCatalogs: true
 
